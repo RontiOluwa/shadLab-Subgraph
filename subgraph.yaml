@@ -1,0 +1,26 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Cars
+    network: goerli
+    source:
+      address: "0x5ECdbfD7b8E2c8D669967ED4eD1B390474c17f6F"
+      abi: Cars
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CarsItem
+        - InspectionItem
+      abis:
+        - name: Cars
+          file: ./abis/Cars.json
+      eventHandlers:
+        - event: CarsItem(uint256,uint256,string,string)
+          handler: handleCarsItem
+        - event: InspectionItem(uint256,uint256,string)
+          handler: handleInspectionItem
+      file: ./src/cars.ts

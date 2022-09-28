@@ -1,0 +1,14 @@
+type CarsItem @entity {
+  id: ID!
+  itemId: BigInt! # uint256
+  VIN: BigInt! # uint256
+  name: String! # string
+  color: String! # string
+}
+
+type InspectionItem @entity {
+  id: ID!
+  _itemId: BigInt! # uint256
+  VIN: BigInt! # uint256
+  date: String! # string
+}
